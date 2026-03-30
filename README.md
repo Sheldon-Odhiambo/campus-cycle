@@ -1,21 +1,98 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Campus Cycle 🚲
 
-# Run and deploy your AI Studio app
+![Status](https://img.shields.io/badge/status-active-success)
+![Platform](https://img.shields.io/badge/platform-web-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-This contains everything you need to run your app locally.
+A smart campus-based bicycle sharing and management system designed to provide students with an affordable, eco-friendly, and convenient mode of transportation within campus.
 
-View your app in AI Studio: https://ai.studio/apps/881e69e8-c5a1-40b7-9141-8727f4d405bc
+---
 
-## Run Locally
+## 🚀 Overview
 
-**Prerequisites:**  Node.js
+Campus Cycle is a digital platform that allows students to **rent, track, and return bicycles seamlessly** across campus.
 
+It solves common campus mobility challenges such as:
+- Long walking distances  
+- Limited transport options  
+- Traffic congestion within campus  
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-# campus-cycle
+---
+
+## 🎯 Objectives
+
+- Provide **easy access to bicycles** for students  
+- Promote **eco-friendly transport** 🌱  
+- Reduce movement time across campus  
+- Digitize bicycle rental and tracking  
+
+---
+
+## ✨ Features
+
+### 🚲 Bike Rental System
+
+- View available bicycles in real-time  
+- Rent bikes with a single click  
+- Track ride duration  
+
+---
+
+### 📍 Smart Tracking
+
+- Track bike usage and availability  
+- Monitor active rides  
+- Prevent misuse and loss  
+
+---
+
+### 👤 User Management
+
+- Student registration and login  
+- Profile management  
+- Rental history tracking  
+
+---
+
+### 💳 Payment Integration *(Optional/Future)*
+
+- Pay per ride or subscription model  
+- Integration with mobile money (e.g., M-Pesa)  
+
+---
+
+### 📊 Admin Dashboard
+
+- Monitor all bicycles  
+- Track usage analytics  
+- Manage users and bikes  
+
+---
+
+## 📱 User Experience
+
+Designed with simplicity and accessibility in mind:
+
+- Clean and intuitive UI  
+- Mobile-friendly design  
+- Fast and responsive interactions  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React / Next.js  
+- **Backend:** Node.js / Express  
+- **Database:** PostgreSQL / MongoDB  
+- **Authentication:** JWT / NextAuth  
+- **Styling:** Tailwind CSS  
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/campus-cycle.git
+cd campus-cycle
