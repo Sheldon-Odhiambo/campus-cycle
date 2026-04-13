@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Marketplace from './pages/Marketplace';
+import ProductDetail from './pages/ProductDetail';
 import Sell from './pages/Sell';
 import Login from './pages/Login';
 import About from './pages/About';
@@ -22,6 +23,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/sell" element={<Sell />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />

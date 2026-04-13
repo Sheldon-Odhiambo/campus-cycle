@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { sampleItems } from '../data/sampleItems';
 import ItemCard from '../components/ItemCard';
 
@@ -33,9 +33,9 @@ export default function Marketplace() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredItems.map(item => (
-          <div key={item.id}>
+          <Link key={item.id} to={`/product/${item.id}`}>
             <ItemCard item={item} />
-          </div>
+          </Link>
         ))}
       </div>
       {filteredItems.length === 0 && <p className="text-center text-gray-500">No items found.</p>}

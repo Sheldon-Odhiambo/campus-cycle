@@ -17,6 +17,8 @@ export interface Item {
   condition: 'New' | 'Used' | 'Like New';
   sellerType: UserType;
   sellerName: string;
+  email: string;
+  phone: string;
   imageUrl: string;
   isFeatured: boolean;
 }

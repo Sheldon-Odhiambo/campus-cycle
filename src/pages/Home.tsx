@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { sampleItems } from '../data/sampleItems';
 import ItemCard from '../components/ItemCard';
 
@@ -37,9 +37,9 @@ export default function Home() {
         <h2 className="text-3xl font-bold mb-6">Featured Items</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {sampleItems.filter(item => item.isFeatured).slice(0, 4).map(item => (
-            <div key={item.id}>
+            <Link key={item.id} to={`/product/${item.id}`}>
               <ItemCard item={item} />
-            </div>
+            </Link>
           ))}
         </div>
       </section>
