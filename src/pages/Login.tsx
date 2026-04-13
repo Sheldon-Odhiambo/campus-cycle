@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import React from 'react';
 import { Chrome, Apple } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', password: '', terms: false, userType: '' });
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', password: '', terms: false, userType: '', name: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const navigate = useNavigate();
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!isLogin && !formData.firstName) newErrors.firstName = 'First name is required';
-    if (!isLogin && !formData.lastName) newErrors.lastName = 'Last name is required';
+    if (!formData.firstName) newErrors.firstName = 'First name is required';
+    if (!formData.lastName) newErrors.lastName = 'Last name is required';
     if (!isLogin && !formData.userType) newErrors.userType = 'Please select your user type';
     if (!formData.email) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
@@ -24,7 +26,32 @@ export default function Login() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      console.log('Form submitted:', formData);
+      if (isLogin) {
+        // Sign In logic
+        const storedUser = localStorage.getItem(formData.email);
+        if (storedUser) {
+          const user = JSON.parse(storedUser);
+          if (user.password === formData.password && user.firstName === formData.firstName && user.lastName === formData.lastName) {
+            alert('Login successful!');
+            console.log('Logged in as:', user);
+            navigate('/');
+          } else {
+            alert('Invalid credentials');
+          }
+        } else {
+          alert('User not found');
+        }
+      } else {
+        // Sign Up logic
+        const userToStore = {
+          ...formData,
+          fullName: `${formData.firstName} ${formData.lastName}`
+        };
+        localStorage.setItem(formData.email, JSON.stringify(userToStore));
+        alert('Account created successfully!');
+        setIsLogin(true);
+        setFormData({ firstName: '', lastName: '', email: '', password: '', terms: false, userType: '', name: '' });
+      }
     }
   };
 
@@ -49,12 +76,12 @@ export default function Login() {
         <div className="w-full md:w-1/2 p-12">
           <h2 className="text-3xl font-bold mb-8">{isLogin ? 'Sign In' : 'Sign Up'}</h2>
           <form className="space-y-4" onSubmit={handleSubmit}>
+            <input type="text" placeholder="First name" className={`w-full px-4 py-3 border ${errors.firstName ? 'border-red-500' : 'border-stone-300'}`} value={formData.firstName} onChange={(e) => setFormData({...formData, firstName: e.target.value})} />
+            {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
+            <input type="text" placeholder="Last name" className={`w-full px-4 py-3 border ${errors.lastName ? 'border-red-500' : 'border-stone-300'}`} value={formData.lastName} onChange={(e) => setFormData({...formData, lastName: e.target.value})} />
+            {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
             {!isLogin && (
               <>
-                <input type="text" placeholder="First name" className={`w-full px-4 py-3 border ${errors.firstName ? 'border-red-500' : 'border-stone-300'}`} value={formData.firstName} onChange={(e) => setFormData({...formData, firstName: e.target.value})} />
-                {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
-                <input type="text" placeholder="Last name" className={`w-full px-4 py-3 border ${errors.lastName ? 'border-red-500' : 'border-stone-300'}`} value={formData.lastName} onChange={(e) => setFormData({...formData, lastName: e.target.value})} />
-                {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
                 <div className="flex gap-4">
                   <label className="flex items-center gap-2 text-sm">
                     <input type="radio" name="userType" value="student" checked={formData.userType === 'student'} onChange={(e) => setFormData({...formData, userType: e.target.value})} /> Student
