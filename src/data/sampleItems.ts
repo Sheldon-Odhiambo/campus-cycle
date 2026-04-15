@@ -12,7 +12,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Alice Student',
     email: 'alice@example.com',
     phone: '+254700000001',
-    imageUrl: 'https://picsum.photos/seed/gaming-system/300/200',
+    imageUrl: '/assets/gaming system .jpg',
     isFeatured: true,
   },
   {
@@ -26,7 +26,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Bob Community',
     email: 'bob@example.com',
     phone: '+254700000002',
-    imageUrl: 'https://picsum.photos/seed/office-chair/300/200',
+    imageUrl: '/assets/erognonomic-chair.jpg',
     isFeatured: true,
   },
   {
@@ -40,7 +40,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Charlie Student',
     email: 'charlie@example.com',
     phone: '+254700000003',
-    imageUrl: 'https://picsum.photos/seed/laptop-computer/300/200',
+    imageUrl: '/assets/gaming laptop.jpg',
     isFeatured: true,
   },
   {
@@ -54,7 +54,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Dave Community',
     email: 'dave@example.com',
     phone: '+254700000004',
-    imageUrl: 'https://picsum.photos/seed/bed-frame/300/200',
+    imageUrl: '/assets/bedframe.jpg',
     isFeatured: false,
   },
   {
@@ -68,7 +68,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Eve Student',
     email: 'eve@example.com',
     phone: '+254700000005',
-    imageUrl: 'https://picsum.photos/seed/gym-gloves/300/200',
+    imageUrl: '/assets/gym-gloves.jpg',
     isFeatured: false,
   },
   {
@@ -82,7 +82,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Frank Student',
     email: 'frank@example.com',
     phone: '+254700000006',
-    imageUrl: 'https://picsum.photos/seed/computer-monitor/300/200',
+    imageUrl: '/assets/monitor.jpg',
     isFeatured: true,
   },
   {
@@ -96,7 +96,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Grace Student',
     email: 'grace@example.com',
     phone: '+254700000007',
-    imageUrl: 'https://picsum.photos/seed/mechanical-keyboard/300/200',
+    imageUrl: '/assets/keyboard.jpg',
     isFeatured: false,
   },
   {
@@ -110,7 +110,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Henry Community',
     email: 'henry@example.com',
     phone: '+254700000008',
-    imageUrl: 'https://picsum.photos/seed/gas-cylinder/300/200',
+    imageUrl: '/assets/gas-cylinder.jpg',
     isFeatured: false,
   },
   {
@@ -124,7 +124,7 @@ export const sampleItems: Item[] = [
     sellerName: 'Ivy Student',
     email: 'ivy@example.com',
     phone: '+254700000009',
-    imageUrl: 'https://picsum.photos/seed/socks/300/200',
+    imageUrl: '/assets/socks.jpg',
     isFeatured: false,
   },
 ];
