@@ -5,7 +5,7 @@ export default function About() {
         {/* Left Column: Image */}
         <div className="overflow-hidden shadow-2xl">
           <img 
-            src="https://picsum.photos/seed/anu-campus/800/600" 
+            src="/assets/keyboard.jpg" 
             alt="Africa Nazarene University Campus" 
             className="w-full h-full object-cover aspect-[4/3]"
             referrerPolicy="no-referrer"

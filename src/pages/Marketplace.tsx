@@ -1,14 +1,22 @@
-import { useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { sampleItems } from '../data/sampleItems';
 import ItemCard from '../components/ItemCard';
+import { Item } from '../types';
 
 export default function Marketplace() {
   const [searchParams] = useSearchParams();
+  const location = useLocation();
   const searchTerm = searchParams.get('search')?.toLowerCase() || '';
   const [conditionFilter, setConditionFilter] = useState('');
+  const [items, setItems] = useState<Item[]>([]);
 
-  const filteredItems = sampleItems.filter(item => {
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('items') || '[]');
+    setItems([...sampleItems, ...storedItems]);
+  }, [location]);
+
+  const filteredItems = items.filter(item => {
     const matchesSearch = item.name.toLowerCase().includes(searchTerm) || 
                           item.description.toLowerCase().includes(searchTerm);
     const matchesCondition = conditionFilter === '' || item.condition === conditionFilter;

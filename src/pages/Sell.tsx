@@ -31,7 +31,7 @@ export default function Sell() {
     const newItem = {
       ...formData,
       id: Date.now().toString(),
-      imageUrl: imagePreview || 'https://picsum.photos/seed/picsum/300/200',
+      imageUrl: imagePreview || '/assets/gaming system .jpg',
       isFeatured: false
     };
     

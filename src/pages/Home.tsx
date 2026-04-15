@@ -1,11 +1,19 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { sampleItems } from '../data/sampleItems';
 import ItemCard from '../components/ItemCard';
+import { Item } from '../types';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [items, setItems] = useState<Item[]>([]);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('items') || '[]');
+    setItems([...sampleItems, ...storedItems]);
+  }, [location]);
 
   const handleSearch = () => {
     navigate(`/marketplace?search=${searchTerm}`);
@@ -36,7 +44,7 @@ export default function Home() {
       <section className="mb-12">
         <h2 className="text-3xl font-bold mb-6">Featured Items</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {sampleItems.filter(item => item.isFeatured).slice(0, 4).map(item => (
+          {items.filter(item => item.isFeatured).slice(0, 4).map(item => (
             <Link key={item.id} to={`/product/${item.id}`}>
               <ItemCard item={item} />
             </Link>
